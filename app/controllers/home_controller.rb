@@ -7,11 +7,12 @@ class HomeController < ApplicationController
 
   private
 
-  def autocomplete
+  def autocomplete(params)
+    @params = params
     base_url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json'
     input = 'Vict'
     types = 'cities'
 
-    HTTParty.get("#{ base_url }?input=#{ input }&types=(#{ types })&language=en_US&key=#{ ENV['PLACES_API_KEY'] }")
+    @result = HTTParty.get("#{ base_url }?input=#{ input }&types=(#{ types })&language=en_US&key=#{ ENV['PLACES_API_KEY'] }")
   end
 end
