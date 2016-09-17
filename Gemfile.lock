@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/bkeepers/dotenv.git
+  revision: e4cbe7e0cebc5c71412b3971677fa3d8091f4fd7
+  specs:
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,6 +70,8 @@ GEM
       temple (~> 0.7.6)
       thor
       tilt
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -83,6 +94,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -164,7 +176,9 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails!
   hamlit (~> 1.6)
+  httparty (~> 0.14.0)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
