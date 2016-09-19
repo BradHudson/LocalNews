@@ -1,4 +1,7 @@
 %form{ action: 'autocomplete', method: 'post' }
-  %input{ type: 'search', placeholder: 'city', id: 'input_city' }
-  %input{ type: 'search', placeholder: 'state', id: 'input_state' }
-  %input{ type: 'submit', value: 'Submit', :class => 'button' }
+  .small-12.medium-5.columns
+    %input{ type: 'search', placeholder: 'city', id: 'input_city' }
+  .small-12.medium-5.columns
+    %input{ type: 'search', placeholder: 'state', id: 'input_state' }
+  .small-12.medium-2.columns
+    %input{ type: 'submit', value: 'Submit', :class => 'button' }
