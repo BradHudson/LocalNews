@@ -28,6 +28,7 @@ module Services
            }
           )
         end
+        return_hash
       end
     end
   end
