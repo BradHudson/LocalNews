@@ -1,8 +1,13 @@
+require 'services/times_service'
 class HomeController < ApplicationController
   def index
   end
 
   def form
+  end
+
+  def search
+    @results = Services::Times.article_search(params)
   end
 
   private
