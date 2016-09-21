@@ -5,6 +5,10 @@ class HomeController < ApplicationController
   def form
   end
 
+  def search
+    binding.pry
+  end
+
   private
 
   def autocomplete(params)
