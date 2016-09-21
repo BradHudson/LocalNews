@@ -33,11 +33,7 @@ gem 'dotenv-rails', :github => "bkeepers/dotenv"
 gem 'httparty', '~> 0.14.0'
 gem 'hamlit', '~>1.6'
 gem 'foundation-rails'
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-end
+gem 'pry-rails', :group => :development
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
