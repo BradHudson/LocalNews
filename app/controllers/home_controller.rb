@@ -1,3 +1,4 @@
+require 'services/times_service'
 class HomeController < ApplicationController
   def index
   end
@@ -6,7 +7,7 @@ class HomeController < ApplicationController
   end
 
   def search
-    binding.pry
+    @results = Services::Times.article_search(params)
   end
 
   private
