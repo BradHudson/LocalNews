@@ -1,2 +1,4 @@
 %h1 Your results
-= @results
+- @results.each do |article|
+  %a
+    = article['']

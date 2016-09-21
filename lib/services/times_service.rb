@@ -10,11 +10,24 @@ module Services
                                             "q" => build_search(params)
                                         })
         request = Net::HTTP::Get.new(uri.request_uri)
-        @result = JSON.parse(http.request(request).body)
+        modify_response(JSON.parse(http.request(request).body)['response']['docs'])
       end
 
       def build_search(params)
-        "#{ params['city'] }, #{ params['state'] }"
+        "#{ params.fetch('city','') }, #{ params.fetch('state','') }"
+      end
+
+      def modify_response(response)
+        return_hash = []
+        response.each do |i|
+          return_hash.push(
+           {
+               web_url: i['web_url'],
+               snippet: i['snippet'],
+               headline: i['headline']['print_headline']
+           }
+          )
+        end
       end
     end
   end
