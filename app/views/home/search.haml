@@ -1,0 +1,10 @@
+.row
+  .small-12.medium-6.medium-centered.columns
+    %h1 Your results
+.row
+  .small-12.medium-6.medium-centered.columns
+    .row
+      .small-12.columns
+        - @results.each do |article|
+          %a
+            = link_to article[:headline], article[:web_url]

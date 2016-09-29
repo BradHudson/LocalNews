@@ -1,7 +1,4 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+require 'httparty'
 
-  def index
-    render html: "hello, yudi"
-  end
+class ApplicationController < ActionController::Base
 end
