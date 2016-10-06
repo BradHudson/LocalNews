@@ -1,6 +1,9 @@
 require 'services/times_service'
+require 'oauth2'
+require 'base64'
 class HomeController < ApplicationController
   def index
+    yahoo
   end
 
   def form
@@ -8,6 +11,28 @@ class HomeController < ApplicationController
 
   def search
     @results = Services::Times.article_search(params)
+  end
+
+  def yahoo
+    client_id = ENV['YAHOO_CLIENT_ID']
+    client_secret = ENV['YAHOO_CLIENT_SECRET']
+    oauth_client = OAuth2::Client.new(client_id, client_secret, {
+        site: 'https://api.login.yahoo.com',
+        authorize_url: '/oauth2/request_auth',
+        token_url: '/oauth2/get_token',
+    })
+
+    auth = "Basic #{Base64.strict_encode64("#{client_id}:#{client_secret}")}"
+
+    new_token = oauth_client.get_token({
+                                           redirect_uri: 'https://localnews-staging.herokuapp.com/',
+                                           refresh_token: 'ADwx9VdQsu77ZJWJoocCetsA21nF8i8oC7Mw4I9_av4fxYTkC3__TyD2Dc5aVEo-',
+                                           grant_type: 'refresh_token',
+                                           headers: { 'Authorization' => auth } })
+    puts new_token
+
+    binding.pry
+    @result = HTTParty.get("https://fantasysports.yahooapis.com/fantasy/v2/league/359.l.101698/scoreboard;week=4", headers: { Authorization: "Bearer #{ new_token.token }" })
   end
 
   private
