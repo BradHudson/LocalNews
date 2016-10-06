@@ -31,7 +31,6 @@ class HomeController < ApplicationController
                                            headers: { 'Authorization' => auth } })
     puts new_token
 
-    binding.pry
     @result = HTTParty.get("https://fantasysports.yahooapis.com/fantasy/v2/league/359.l.101698/scoreboard;week=4", headers: { Authorization: "Bearer #{ new_token.token }" })
   end
 

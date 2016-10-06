@@ -22,6 +22,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'omniauth-yahoo-oauth2', '~> 1.1'
+gem 'omniauth-twitter', '~> 1.2', '>= 1.2.1'
 
 gem 'dotenv-rails', :github => "bkeepers/dotenv"
 gem 'httparty', '~> 0.14.0'
