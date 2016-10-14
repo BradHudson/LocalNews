@@ -3,7 +3,9 @@ require 'oauth2'
 require 'base64'
 class HomeController < ApplicationController
   def index
-    #yahoo
+    yahoo
+    binding.pry
+    current_user.tweet('testing the tweets',current_user)
   end
 
   def form
@@ -40,7 +42,7 @@ class HomeController < ApplicationController
     #                                        headers: { 'Authorization' => auth } })
     puts new_token
 
-    @result = HTTParty.get("https://fantasysports.yahooapis.com/fantasy/v2/league/359.l.101698/scoreboard;week=4", headers: { Authorization: "Bearer #{ new_token.token }" })
+    @result = HTTParty.get("https://fantasysports.yahooapis.com/fantasy/v2/league/359.l.101698/scoreboard;week=5", headers: { Authorization: "Bearer #{ new_token.token }" })
   end
 
   private
