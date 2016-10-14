@@ -30,6 +30,13 @@ class HomeController < ApplicationController
                                            refresh_token: 'ADwx9VdQsu77ZJWJoocCetsA21nF8i8oC7Mw4I9_av4fxYTkC3__TyD2Dc5aVEo-',
                                            grant_type: 'refresh_token',
                                            headers: { 'Authorization' => auth } })
+    #OAUTH TOKEN GET
+    # binding.pry
+    # new_token = oauth_client.get_token({
+    #                                        redirect_uri: 'https://localnews-staging.herokuapp.com/',
+    #                                        code: 'abcdef',
+    #                                        grant_type: 'authorization_code',
+    #                                        headers: { 'Authorization' => auth } })
     puts new_token
 
     @result = HTTParty.get("https://fantasysports.yahooapis.com/fantasy/v2/league/359.l.101698/scoreboard;week=4", headers: { Authorization: "Bearer #{ new_token.token }" })
