@@ -24,6 +24,7 @@ class HomeController < ApplicationController
 
     auth = "Basic #{Base64.strict_encode64("#{client_id}:#{client_secret}")}"
 
+    #REFRESH TOKEN GET
     new_token = oauth_client.get_token({
                                            redirect_uri: 'https://localnews-staging.herokuapp.com/',
                                            refresh_token: 'ADwx9VdQsu77ZJWJoocCetsA21nF8i8oC7Mw4I9_av4fxYTkC3__TyD2Dc5aVEo-',
