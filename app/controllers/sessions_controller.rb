@@ -1,8 +1,13 @@
 class SessionsController < ApplicationController
   def create
     @user = User.from_omniauth(auth_hash)
-    session[:user_id] = user.id
-    redirect to '/', notice: 'Signed In!'
+    session[:user_id] = @user.id
+    redirect_to '/', notice: 'Signed In!'
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/', notice: 'Signed Out!'
   end
 
   protected

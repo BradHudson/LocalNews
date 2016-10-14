@@ -1,5 +1,9 @@
 #sign-in-twitter
-  = link_to 'Sign in with Twitter', '/auth/twitter'
+  - if current_user
+    = "Signed in as #{ current_user.name }"
+    = link_to 'Sign out', signout_path
+  - else
+    = link_to 'Sign in with Twitter', '/auth/twitter'
 .search-container
   .row
     .small-12.medium-6.medium-centered.columns

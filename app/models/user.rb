@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   def self.from_omniauth(auth)
-    binding.pry
-    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+    User.where(users: auth.slice("provider"), users: auth.slice("uid")).first || create_from_omniauth(auth)
   end
 
   def self.create_from_omniauth(auth)
