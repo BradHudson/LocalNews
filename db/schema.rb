@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014150843) do
+ActiveRecord::Schema.define(version: 20161014170427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,13 @@ ActiveRecord::Schema.define(version: 20161014150843) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "twitter_token"
+    t.string   "twitter_secret"
+    t.string   "yahoo_token"
+    t.string   "yahoo_secret"
+    t.string   "yahoo_league_id"
   end
 
 end
