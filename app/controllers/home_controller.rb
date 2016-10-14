@@ -4,8 +4,8 @@ require 'base64'
 class HomeController < ApplicationController
   def index
     yahoo
-    binding.pry
-    current_user.tweet('testing the tweets',current_user)
+    #comment in when ready to tweet
+    #current_user.tweet('testing the tweets',current_user)
   end
 
   def form
