@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   def self.from_omniauth(auth)
-    binding.pry
     user = User.where(users: auth.slice("provider", "uid")).first || create_from_omniauth(auth)
     user = update_token_info(user, auth) if user.twitter_token.nil? || user.twitter_secret.nil?
     user

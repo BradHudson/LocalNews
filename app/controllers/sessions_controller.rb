@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    binding.pry
     @user = User.from_omniauth(auth_hash)
-    binding.pry
     session[:user_id] = @user.id
     redirect_to '/', notice: 'Signed In!'
   end

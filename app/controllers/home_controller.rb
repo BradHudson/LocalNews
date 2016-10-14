@@ -3,7 +3,7 @@ require 'oauth2'
 require 'base64'
 class HomeController < ApplicationController
   def index
-    yahoo
+    #yahoo
     #comment in when ready to tweet
     #current_user.tweet('testing the tweets',current_user)
   end
@@ -13,6 +13,9 @@ class HomeController < ApplicationController
 
   def search
     @results = Services::Times.article_search(params)
+  end
+
+  def product
   end
 
   def yahoo
@@ -40,7 +43,6 @@ class HomeController < ApplicationController
     #                                        code: 'abcdef',
     #                                        grant_type: 'authorization_code',
     #                                        headers: { 'Authorization' => auth } })
-    puts new_token
 
     @result = HTTParty.get("https://fantasysports.yahooapis.com/fantasy/v2/league/359.l.101698/scoreboard;week=5", headers: { Authorization: "Bearer #{ new_token.token }" })
   end
