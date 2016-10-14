@@ -3,7 +3,7 @@ require 'oauth2'
 require 'base64'
 class HomeController < ApplicationController
   def index
-    yahoo
+    #yahoo
   end
 
   def form
@@ -24,6 +24,7 @@ class HomeController < ApplicationController
 
     auth = "Basic #{Base64.strict_encode64("#{client_id}:#{client_secret}")}"
 
+    #with twitter using http://127.0.0.1:3000/ as the callback works. maybe try here?
     #REFRESH TOKEN GET
     new_token = oauth_client.get_token({
                                            redirect_uri: 'https://localnews-staging.herokuapp.com/',

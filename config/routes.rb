@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get 'form', to: 'home#form'
   post 'search', to: 'home#search'
   post 'autocomplete', to: 'home#autocomplete'
+  get '/auth/:provider/callback', to: 'sessions#create'
 end
